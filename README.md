@@ -1,2 +1,2 @@
 # Yatzee
-yatzee game in python (not done yes)
+yatzee game in python (not done yetIn Progress)
