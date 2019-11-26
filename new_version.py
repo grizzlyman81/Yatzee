@@ -14,7 +14,7 @@ import random
 
 turns = 1
 z = 0
-     
+totally = 0 ### TEST!!!
      
 def num(z): # Updating the numbers of dices to roll
     l = 1
@@ -78,7 +78,7 @@ class SelectDices(Roll):
             self.new_dict1.setdefault(value, set()).add(key)
  
         self.dict1 = {}
-        
+        global totally  ### TEST!!!
  
         for key, value in self.new_dict1.items():  
             if  len(value) > 1 and len(value) < 3: # If user has 2 dices with same and not more
@@ -91,6 +91,8 @@ class SelectDices(Roll):
                 self.left_dices = dict(zip(self.lat, self.bi)) 
                 #print(self.left_dices, "pair")
                 self.dice_value = 2
+                totally = suum + totally
+                print("This is the total sum: ", totally)
             
             elif len(value) > 2 and len(value) < 4: # If user has three of a kind
                 print("you have three of a kind: %s with dices: %r" % (key, value))
@@ -102,6 +104,8 @@ class SelectDices(Roll):
                 self.left_dices = dict(zip(self.lat, self.bi))
                 #print(self.left_dices, "three of a kind")
                 self.dice_value = 3
+                totally = suum + totally
+                print("This is the total sum: ", totally)
                
             elif len(value) > 3: # If user has four of a kind
                 print("You have four of a kind: %s with dices: %r" % (key, value))
@@ -113,6 +117,8 @@ class SelectDices(Roll):
                 self.left_dices = dict(zip(self.lat, self.bi))
                # print(self.left_dices, "four of a kind")
                 self.dice_value = 4
+                totally = suum + totally
+                print("This is the total sum: ", totally)
             '''    
             elif len(value) < 2: # If user has nothing (ToDo save highest dice value...)
                 print("You have nothing...")
@@ -138,6 +144,7 @@ class SelectDices(Roll):
  
         else:
             print('Please select y/n \n') #ToDo
+        
  
     def ret(self,):
         
