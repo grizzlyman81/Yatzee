@@ -79,6 +79,7 @@ class SelectDices(Roll):
  
         self.dict1 = {}
         global totally  ### TEST!!!
+        self.dice_value = 0
  
         for key, value in self.new_dict1.items():  
             if  len(value) > 1 and len(value) < 3: # If user has 2 dices with same and not more
@@ -90,7 +91,7 @@ class SelectDices(Roll):
                 # print(self.bi, self.lat)
                 self.left_dices = dict(zip(self.lat, self.bi)) 
                 #print(self.left_dices, "pair")
-                self.dice_value = 2
+                self.dice_value = self.dice_value + 2
                 totally = suum + totally
                 print("This is the total sum: ", totally)
             
@@ -103,7 +104,7 @@ class SelectDices(Roll):
                 # print(self.bi, self.lat)
                 self.left_dices = dict(zip(self.lat, self.bi))
                 #print(self.left_dices, "three of a kind")
-                self.dice_value = 3
+                self.dice_value = self.dice_value + 3
                 totally = suum + totally
                 print("This is the total sum: ", totally)
                
@@ -116,7 +117,7 @@ class SelectDices(Roll):
                 # print(self.bi, self.lat)
                 self.left_dices = dict(zip(self.lat, self.bi))
                # print(self.left_dices, "four of a kind")
-                self.dice_value = 4
+                self.dice_value = self.dice_value + 4
                 totally = suum + totally
                 print("This is the total sum: ", totally)
             '''    
@@ -150,10 +151,10 @@ class SelectDices(Roll):
         
         global z # added to point to z by reference, making it to change the global variable.
         try:
-            z = self.dice_value
+            z = self.dice_value # ToDo solve the issue when having 2 different pairs
             print('{}'.format(z), "dices to save")
         except AttributeError:
-            print("Game over")
+            print("Game over man!!!")
             exit()
         
         
@@ -183,6 +184,7 @@ while True:
     if turns == 4:
         break
         
-print("Game Over")        
+print("Game Over") 
+print("Your total score was: ", totally)       
         
     
